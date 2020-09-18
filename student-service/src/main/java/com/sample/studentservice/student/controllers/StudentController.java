@@ -49,17 +49,7 @@ public class StudentController {
 		return student;
 	}
 	
-//	@GetMapping("/listall")
-//	public List <Student> fetchAllStudent(){
-//		List <Student> list = service.listAllStudents();
-//		List<Student> response = new ArrayList<>();
-//		System.out.println("inside list in controllers");
-//		for(Student student:list) {
-//			Student studentlist = new Student(student.getName(),student.getAddress(),student.getPhoneNo());
-//			response.add(studentlist);
-//		}
-//		return response;
-//	}
+
 		
 	@GetMapping("/fetchall")
 	public List <Student> fetchAll(){
@@ -67,17 +57,15 @@ public class StudentController {
 			return list;
 	}	
 	
-//	@PutMapping("/update")
-//	public Student updateStudentDetails(@RequestBody UpdateStudentRequest requestData) {
-//		String name = requestData.getName();
-//		String address =  requestData.getAddress();
-//		int phnumber = requestData.getPhoneNo();
-//		int id = requestData.getId();
-//		System.out.println("id is -------------"+id);
-//		Student student = new Student(name,address,phnumber);
-//		student.setId(id);
-//		System.out.println("id is -------------"+id);
-//		student = service.updateStudent(student);
-//		return student;	
-//	}
+	@PutMapping("/update")
+	public Student updateStudentDetails(@RequestBody UpdateStudentRequest requestData) {
+		String name = requestData.getName();
+		String address =  requestData.getAddress();
+		int phnumber = requestData.getPhoneNo();
+		int id = requestData.getId();
+		Student student = new Student(name,address,phnumber);
+		student.setId(id);
+		student = service.updateStudent(student);
+		return student;	
+	}
 }
